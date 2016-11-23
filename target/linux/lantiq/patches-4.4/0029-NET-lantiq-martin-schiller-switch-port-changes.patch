@@ -1,5 +1,14 @@
 --- a/drivers/net/ethernet/lantiq_xrx200.c
 +++ b/drivers/net/ethernet/lantiq_xrx200.c
+@@ -36,7 +36,7 @@
+ #include "lantiq_xrx200_sw.h"
+ 
+ #define SW_POLLING
+-#define SW_ROUTING
++#undef SW_ROUTING
+ 
+ #ifdef SW_ROUTING
+ #define XRX200_MAX_DEV		2
 @@ -64,6 +64,7 @@
  #define XRX200_DMA_IRQ		INT_NUM_IM2_IRL0
  #define XRX200_DMA_RX		0
