@@ -37,6 +37,19 @@ define Device/tplink_tdw8980
 endef
 TARGET_DEVICES += tplink_tdw8980
 
+define Device/tplink_tdw9980
+  $(Device/lantiqTpLink)
+  DEVICE_DTS := TDW9980
+  TPLINK_FLASHLAYOUT := 8Mltq
+  TPLINK_HWID := 0x99800001
+  TPLINK_HWREV := 1
+  IMAGE_SIZE := 7680k
+  DEVICE_TITLE := TP-LINK TD-W9980
+  DEVICE_PACKAGES:= kmod-ath9k kmod-owl-loader wpad-mini kmod-usb-dwc2 kmod-usb-ledtrig-usbport
+  SUPPORTED_DEVICES += TDW9980
+endef
+TARGET_DEVICES += tplink_tdw9980
+
 define Device/tplink_vr200v
   $(Device/lantiqTpLink)
   DEVICE_DTS := VR200v
