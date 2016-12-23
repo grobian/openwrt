@@ -367,22 +367,19 @@
  	}
  
  	return err;
-@@ -1506,10 +1543,11 @@ static void xrx200_hw_init(struct xrx200
+@@ -1506,9 +1543,10 @@ static void xrx200_hw_init(struct xrx200
  	/* load the pce microcode */
  	xrx200_pci_microcode();
  
 -	/* Default unknown Broadcat/Multicast/Unicast port maps */
 -	ltq_switch_w32(0x40, PCE_PMAP1);
--	ltq_switch_w32(0x40, PCE_PMAP2);
--	ltq_switch_w32(0x40, PCE_PMAP3);
 +	/* Default unknown Multicast/Broadcast port map (DMCPMAP) */
-+	ltq_switch_w32(0x7F, PCE_PMAP2);
+ 	ltq_switch_w32(0x40, PCE_PMAP2);
 +
 +	/* Default unknown Unicast port map (UUCMAP) */
-+	ltq_switch_w32(0x7F, PCE_PMAP3);
+ 	ltq_switch_w32(0x40, PCE_PMAP3);
  
  	/* RMON Counter Enable for all physical ports */
- 	for (i = 0; i < 7; i++)
 @@ -1734,10 +1772,10 @@ static int xrx200_probe(struct platform_
  	}
  
