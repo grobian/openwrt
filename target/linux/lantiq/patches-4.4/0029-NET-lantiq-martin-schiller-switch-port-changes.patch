@@ -380,6 +380,15 @@
  	ltq_switch_w32(0x40, PCE_PMAP3);
  
  	/* RMON Counter Enable for all physical ports */
+@@ -1633,7 +1671,7 @@ static void xrx200_of_port(struct xrx200
+ 			gpio_set_value(p->gpio, (p->gpio_flags & OF_GPIO_ACTIVE_LOW) ? (0) : (1));
+ 		}
+ 	/* is this port a wan port ? */
+-	if (priv->wan)
++	if (priv->id)
+ 		priv->hw->wan_map |= BIT(p->num);
+ 
+ 	priv->port_map |= BIT(p->num);
 @@ -1734,10 +1772,10 @@ static int xrx200_probe(struct platform_
  	}
  
